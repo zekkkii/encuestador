@@ -11,5 +11,8 @@ namespace encuestador.forms
         public static RepositorioForms Instancia { get; } = new RepositorioForms();
         public frmLogin login  = new frmLogin();
         public int indexSeleccionado = -1;
+        public int cantidadpreguntas = 0;
+        public int cantidadPreguntasTomadas = 0;
+        public int encuestaActual =  -1;
     }
 }

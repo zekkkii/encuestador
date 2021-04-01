@@ -89,19 +89,30 @@ namespace Logiclayer
 
         #region preguntas de las encuestas
 
-        public DataTable cargarPreguntas()
+        public DataTable cargarPreguntas(int id)
         {
             // se llama a la DB y se cargan los datos obtenidos en un datable que luego se carga al datagrid            
-            DataTable data = iniciarServicioEncuesta.cargarPreguntas();
+            DataTable data = iniciarServicioEncuesta.cargarPreguntas(id);
             return data;
         }
-        public bool añadirPregunta(string pregunta)
+
+        public bool añadirPregunta(int id,string pregunta)
         {
-          bool fueExitoso =  iniciarServicioEncuesta.añadirPregunta(pregunta);
+          bool fueExitoso =  iniciarServicioEncuesta.añadirPregunta(id, pregunta);
             if (fueExitoso) return true;
             //si no se borro devuelve false
             return false;
         }
+
+
+        public bool asignarPreguntaAEncuesta(string pregunta)
+        {
+            bool fueExitoso = iniciarServicioEncuesta.asignarPreguntaAEncuesta(pregunta);
+            if (fueExitoso) return true;
+            //si no se borro devuelve false
+            return false;
+        }
+
 
         public bool editarPregunta(int id, string pregunta)
         {

@@ -51,6 +51,7 @@ namespace encuestador.forms
         {
             if (RepositorioForms.Instancia.indexSeleccionado >= 0)
             {
+                RepositorioForms.Instancia.encuestaActual = RepositorioForms.Instancia.indexSeleccionado;
                 frmEditarEncuesta editarEncuesta = new frmEditarEncuesta();
                 editarEncuesta.Show();
                 this.Close();

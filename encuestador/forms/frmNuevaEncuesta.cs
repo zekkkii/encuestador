@@ -52,13 +52,12 @@ namespace encuestador.forms
             menuPrincipal.Show();
             this.Close();
         }
-        #endregion
 
         private void btnCrearEncuesta_Click(object sender, EventArgs e)
         {
             crearEncuesta();
         }
-
+        #endregion
 
         #region metodos
         public void crearEncuesta()
@@ -67,6 +66,9 @@ namespace encuestador.forms
             if (tbxTitulo.Text != "")
             {
                 iniciarServicio.añadirEncuesta(tbxTitulo.Text);
+                
+                RepositorioForms.Instancia.cantidadpreguntas = (int)nudNumeroPreguntas.Value;
+
                 frmNuevaPreguntaEncuesta nuevaPregunta = new frmNuevaPreguntaEncuesta();
                 nuevaPregunta.Show();
                 this.Close();
@@ -77,5 +79,7 @@ namespace encuestador.forms
             }
         }
         #endregion
+
+      
     }
 }

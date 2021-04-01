@@ -55,18 +55,31 @@ namespace DataBase.db
 
         #region preguntas de las encuestas
 
-        public DataTable cargarPreguntas()
+        public DataTable cargarPreguntas(int id)
         {
             DataTable data = new DataTable();
-            SqlDataAdapter query = new SqlDataAdapter("SELECT id, pregunta FROM preguntas ORDER BY pregunta desc", connection);
-
+            SqlDataAdapter query = new SqlDataAdapter("SELECT id, pregunta FROM preguntas where id_encuesta = @id ORDER BY pregunta desc", connection);
+            query.SelectCommand.Parameters.AddWithValue("@id", id);
             return executesqlDataAdapter(query);
         }
 
-        public bool añadirPregunta(string pregunta)
+        public bool añadirPregunta(int id, string pregunta)
         {
-            SqlCommand añadirPregunta = new SqlCommand("INSERT INTO preguntas(pregunta) values(@pregunta) ", connection);
+            SqlCommand añadirPregunta = new SqlCommand("INSERT INTO preguntas(pregunta,id_encuesta) values(@pregunta,@id) ", connection);
             añadirPregunta.Parameters.AddWithValue("@pregunta", pregunta);
+            añadirPregunta.Parameters.AddWithValue("@id", id);
+
+
+            if (executeCommand(añadirPregunta)) return true;
+
+            return false;
+        }
+        public bool asignarPreguntaAEncuesta(string pregunta)
+        {
+            SqlCommand añadirPregunta = new SqlCommand("INSERT INTO preguntas(pregunta,id_encuesta) values(@pregunta,(SELECT IDENT_CURRENT('encuesta'))) ", connection);
+            añadirPregunta.Parameters.AddWithValue("@pregunta", pregunta);
+            
+
 
             if (executeCommand(añadirPregunta)) return true;
 

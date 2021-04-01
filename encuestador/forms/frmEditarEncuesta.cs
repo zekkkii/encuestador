@@ -45,7 +45,7 @@ namespace encuestador.forms
         {         
             cargarDataGrid();
             dgvPreguntas.ClearSelection();
-            RepositorioForms.Instancia.indexSeleccionado = -1;
+          
         }
 
         private void dgvEncuestas_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -80,6 +80,7 @@ namespace encuestador.forms
 
             //esto setea el index seleccionado a -1 si es que se selecciono algumn item del data grid
             RepositorioForms.Instancia.indexSeleccionado = -1;
+            RepositorioForms.Instancia.encuestaActual = -1;
             this.Close();
         }
 
@@ -89,11 +90,13 @@ namespace encuestador.forms
         #region metodos
         public void  añadir()
         {
-            if (iniciarServicio.añadirPregunta(tbxPregunta.Text))
+            if (iniciarServicio.añadirPregunta(RepositorioForms.Instancia.encuestaActual, tbxPregunta.Text))
             {
                 MessageBox.Show("Añadido satisfactoriamente");
                 tbxPregunta.Text = "";
-                cargarDataGrid();
+
+                RepositorioForms.Instancia.indexSeleccionado = -1;
+               cargarDataGrid();
             }
             else
             {
@@ -119,15 +122,14 @@ namespace encuestador.forms
                     {
                         MessageBox.Show("Borrado satisfactoriamente!");
                         cargarDataGrid();
-                        // aqui reseteo en index seleccionado
+
                         RepositorioForms.Instancia.indexSeleccionado = -1;
-                        btnGuardar.Visible = false;
+                         btnGuardar.Visible = false;
                     }
                     else
                     {
                         MessageBox.Show("Al parecer hubo un error, encuesta no eliminada...");
-                        // aqui reseteo en index seleccionado
-                        RepositorioForms.Instancia.indexSeleccionado = -1;
+                       
                     }
                 }
                 else
@@ -154,8 +156,7 @@ namespace encuestador.forms
                 iniciarServicio.editarPregunta(index, tbxPregunta.Text);
                 tbxPregunta.Text = "";
                 btnGuardar.Visible = false;
-                // aqui reseteo en index seleccionado
-                RepositorioForms.Instancia.indexSeleccionado = -1;
+               
                 cargarDataGrid();
             }
         }
@@ -166,7 +167,8 @@ namespace encuestador.forms
 
 public void cargarDataGrid()
         {
-            DataTable data = iniciarServicio.cargarPreguntas();
+            int encuestaActual = RepositorioForms.Instancia.encuestaActual;
+            DataTable data = iniciarServicio.cargarPreguntas(encuestaActual);
             dgvPreguntas.DataSource = data;
             dgvPreguntas.ClearSelection();
         }

@@ -70,6 +70,7 @@ namespace encuestador.forms
             0,
             0,
             0});
+     
             // 
             // btnCrearEncuesta
             // 
