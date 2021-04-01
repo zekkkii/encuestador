@@ -1,0 +1,9 @@
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\Logiclayer\bin\Debug\Logiclayer.dll
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\Logiclayer\bin\Debug\Logiclayer.pdb
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\Logiclayer\bin\Debug\DataBase.dll
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\Logiclayer\bin\Debug\DataBase.pdb
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\Logiclayer\obj\Debug\Logiclayer.csprojAssemblyReference.cache
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\Logiclayer\obj\Debug\Logiclayer.csproj.CoreCompileInputs.cache
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\Logiclayer\obj\Debug\Logiclayer.csproj.CopyComplete
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\Logiclayer\obj\Debug\Logiclayer.dll
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\Logiclayer\obj\Debug\Logiclayer.pdb
