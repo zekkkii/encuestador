@@ -51,9 +51,11 @@ namespace encuestador.forms
             {
                 RepositorioForms repo = RepositorioForms.Instancia;
 
+                //guardo los datos proporcionados
+                iniciarServicio.asignarPreguntaAEncuesta(tbxTitulo.Text);
+
                 if (repo.cantidadPreguntasTomadas == repo.cantidadpreguntas)
                 {
-                    iniciarServicio.asignarPreguntaAEncuesta( tbxTitulo.Text);
                     MessageBox.Show("Listo!");
 
                     frmMenuPrincipal iniciarMenuPrincipal = new frmMenuPrincipal();
@@ -61,16 +63,20 @@ namespace encuestador.forms
                     this.Close();
                 }
 
-                if (repo.cantidadPreguntasTomadas != repo.cantidadpreguntas)
-                {
-                    iniciarServicio.añadirPregunta(RepositorioForms.Instancia.encuestaActual,tbxTitulo.Text);
+                else if (RepositorioForms.Instancia.cantidadPreguntasTomadas < repo.cantidadpreguntas)
+                {            
                     RepositorioForms.Instancia.cantidadPreguntasTomadas += 1;
-                    MessageBox.Show("Escribe la siguiente pregunta...");
+                        MessageBox.Show("Escribe la siguiente pregunta...");
 
-                    frmNuevaPreguntaEncuesta nuevaPregunta = new frmNuevaPreguntaEncuesta();
-                    nuevaPregunta.Show();
-                    this.Close();
-                }
+                        frmNuevaPreguntaEncuesta nuevaPregunta = new frmNuevaPreguntaEncuesta();
+                        nuevaPregunta.Show();
+                        this.Close();
+                }              
+
+                    //if (repo.cantidadPreguntasTomadas != repo.cantidadpreguntas)
+                    //{
+                    //}
+
             }
             else
             {

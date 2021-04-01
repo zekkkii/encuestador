@@ -68,6 +68,7 @@ namespace encuestador.forms
                 iniciarServicio.añadirEncuesta(tbxTitulo.Text);
                 
                 RepositorioForms.Instancia.cantidadpreguntas = (int)nudNumeroPreguntas.Value;
+                RepositorioForms.Instancia.cantidadPreguntasTomadas = 1;
 
                 frmNuevaPreguntaEncuesta nuevaPregunta = new frmNuevaPreguntaEncuesta();
                 nuevaPregunta.Show();
