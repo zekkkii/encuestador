@@ -3,7 +3,7 @@ go
 
 create table usuarios 
 (
-id int identity,
+id int primary key identity,
 nombre varchar(50),
 apellido varchar(70),
 usuario varchar(25),
@@ -11,11 +11,14 @@ user_password varchar(45)
 )
 
 
+
 create table encuesta
 (
 id int primary key identity,
 nombre varchar(50)
 )
+
+
 
 create table preguntas
 (
@@ -30,15 +33,38 @@ create table respuestas
 id int primary key identity,
 respuesta varchar(350),
 id_pregunta int,
-foreign key(id_pregunta) references preguntas(id)
+id_persona int,
+foreign key(id_pregunta) references preguntas(id),
+foreign key(id_persona) references usuarios(id)
 )
 
 
 
-insert into encuesta(nombre) values ('los tapones en SD')
-insert into preguntas(pregunta, id_encuesta) values ('Cree que es justo esto de abortar?',() )
 
+
+create table personas_encuestadas
+(
+id int primary key identity,
+id_persona int,
+foreign key(id_persona) references usuarios(id)
+)
+
+select * from usuarios
 select * from encuesta
 select * from preguntas
+select * from respuestas
 
-SELECT IDENT_CURRENT('encuesta')
+
+select P.pregunta as pregunta,respuesta 
+from respuestas R
+inner join 
+preguntas P on P.id = R.id_pregunta 
+inner join 
+usuarios U  on U.id =  R.id_persona 
+where id_persona = @id
+
+
+
+insert into respuestas(respuesta,id_pregunta,id_persona) values('abc',1,1)
+
+select * from respuestas

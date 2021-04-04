@@ -24,6 +24,12 @@ namespace DataBase.db
             return executesqlDataAdapter(query);
         }
 
+        public DataTable verPersonasEncuestadas()
+        {
+            SqlDataAdapter query = new SqlDataAdapter("select U.nombre from personas_encuestadas PE inner join usuarios U on U.id = PE.id_persona", connection);
+            return executesqlDataAdapter(query);
+        }
+
         public bool añadirEncuesta(string nombre)
         {
             SqlCommand añadirPregunta = new SqlCommand("INSERT INTO encuesta(nombre) values(@nombre) ", connection);
@@ -108,6 +114,16 @@ namespace DataBase.db
         }
         #endregion
 
+
+        #region respuestas de las encuestas
+
+        public DataTable verRespuestasPersonasEncuestadas( int id)
+        {
+            SqlDataAdapter query = new SqlDataAdapter("select P.pregunta as pregunta,respuesta from respuestas Rinnerjoinpreguntas P on P.id = R.id_preguntainnerjoinusuarios U  on U.id = R.id_personawhere id_persona = @id", connection);
+            query.SelectCommand.Parameters.AddWithValue("@id", id);
+            return executesqlDataAdapter(query);
+        }
+        #endregion
 
         #region utilidades
         public bool executeCommand(SqlCommand query)

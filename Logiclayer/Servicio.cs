@@ -7,6 +7,7 @@ using DataBase.db;
 using System.Data.SqlClient;
 using DataBase.models;
 using System.Data;
+using Logiclayer;
 
 namespace Logiclayer
 {
@@ -66,6 +67,13 @@ namespace Logiclayer
             return data;
         }
 
+        public DataTable verPersonasEncuestadas()
+        {
+            // se llama a la DB y se cargan los datos obtenidos en un datable que luego se carga al datagrid            
+            DataTable data = iniciarServicioEncuesta.cargarEncuestas();
+            return data;
+        }
+
         public bool añadirEncuesta(string nombre)
         {
 
@@ -75,6 +83,7 @@ namespace Logiclayer
             //si no fue exitoso devuelve false
             return false;
         }
+
         public bool borrarEncuesta(int id)
         {
 
@@ -131,6 +140,16 @@ namespace Logiclayer
         }
         #endregion
 
+
+
+        #region respuestas de las encuestas
+
+        public DataTable verRespuestasPersonasEncuestadas(int id)
+        {
+            DataTable data = iniciarServicioEncuesta.verRespuestasPersonasEncuestadas(id);
+            return data;
+        }
+        #endregion
 
         #region
         #endregion

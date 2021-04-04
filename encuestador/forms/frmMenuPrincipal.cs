@@ -49,6 +49,53 @@ namespace encuestador.forms
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            editar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            eliminar();
+
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            RepositorioForms.Instancia.login.Show();
+        }
+
+        private void dgvEncuestas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >=0)
+            {
+                RepositorioForms.Instancia.indexSeleccionado = Convert.ToInt32(dgvEncuestas.Rows[e.RowIndex].Cells[0].Value.ToString());
+            }
+        }
+
+        private void crearNuevaEncuestaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNuevaEncuesta nuevaEncuesta = new frmNuevaEncuesta();
+            nuevaEncuesta.Show();
+            this.Close();
+        }
+
+        private void visualizarEncuestasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVerEncuesta verPersonas = new frmVerEncuesta();
+            verPersonas.Show();
+            this.Close();
+        }
+
+
+
+        #endregion
+
+
+        #region metodos
+
+        public void editar()
+        {
             if (RepositorioForms.Instancia.indexSeleccionado >= 0)
             {
                 RepositorioForms.Instancia.encuestaActual = RepositorioForms.Instancia.indexSeleccionado;
@@ -56,15 +103,14 @@ namespace encuestador.forms
                 editarEncuesta.Show();
                 this.Close();
             }
-            else 
+            else
             {
                 MessageBox.Show("Debes seleccionar una encuesta");
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        public void eliminar()
         {
-
             if (RepositorioForms.Instancia.indexSeleccionado >= 0)
             {
 
@@ -88,47 +134,16 @@ namespace encuestador.forms
                         RepositorioForms.Instancia.indexSeleccionado = -1;
                     }
                 }
-                else 
+                else
                 {
                     dgvEncuestas.ClearSelection();
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Debes seleccionar una encuesta");
             }
-
         }
-
-            private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            RepositorioForms.Instancia.login.Show();
-        }
-
-        private void dgvEncuestas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >=0)
-            {
-                RepositorioForms.Instancia.indexSeleccionado = Convert.ToInt32(dgvEncuestas.Rows[e.RowIndex].Cells[0].Value.ToString());
-            }
-        }
-
-        private void crearNuevaEncuestaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmNuevaEncuesta nuevaEncuesta = new frmNuevaEncuesta();
-            nuevaEncuesta.Show();
-            this.Close();
-        }
-
-
-
-
-        #endregion
-
-
-        #region metodos
-
         public void cargarDataGrid()
         {
             DataTable data = iniciarServicio.cargarEncuestas();
@@ -137,8 +152,9 @@ namespace encuestador.forms
         }
 
 
+
         #endregion
 
-      
+        
     }
 }

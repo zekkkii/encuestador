@@ -63,7 +63,7 @@ namespace DataBase.db
                 {
                     if ((string)reader.GetValue(0)== user)
                     {
-                        // si retorna true quiere decir que no existe el usuario
+                        // si retorna true quiere decir que  existe el usuario
                         reader.Close();
                         reader.Dispose();
                         connection.Close();
@@ -71,7 +71,7 @@ namespace DataBase.db
 
                     }
                 }
-                // si retorna fals quiere decir que existe el usuario
+                // si retorna true quiere decir que no existe el usuario
                 reader.Close();
                 reader.Dispose();
                 connection.Close();

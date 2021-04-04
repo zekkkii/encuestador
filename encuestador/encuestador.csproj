@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\frmAplicarEncuesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmAplicarEncuesta.Designer.cs">
+      <DependentUpon>frmAplicarEncuesta.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmEditarEncuesta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,13 +83,31 @@
     <Compile Include="forms\frmNuevaPreguntaEncuesta.Designer.cs">
       <DependentUpon>frmNuevaPreguntaEncuesta.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmPersonasEncuestadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmPersonasEncuestadas.Designer.cs">
+      <DependentUpon>frmPersonasEncuestadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\frmRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\frmRegistro.Designer.cs">
       <DependentUpon>frmRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\frmVerPreguntasPersonaEncuestadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmVerPreguntasPersonaEncuestadas.Designer.cs">
+      <DependentUpon>frmVerPreguntasPersonaEncuestadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\RepositorioForms\RepositorioForms.cs" />
+    <Compile Include="forms\frmVerEncuesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frmVerEncuesta.Designer.cs">
+      <DependentUpon>frmVerEncuesta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forms\frmEditarEncuesta.resx">
@@ -101,8 +125,17 @@
     <EmbeddedResource Include="forms\frmNuevaPreguntaEncuesta.resx">
       <DependentUpon>frmNuevaPreguntaEncuesta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmPersonasEncuestadas.resx">
+      <DependentUpon>frmPersonasEncuestadas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\frmRegistro.resx">
       <DependentUpon>frmRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmVerEncuesta.resx">
+      <DependentUpon>frmVerEncuesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frmVerPreguntasPersonaEncuestadas.resx">
+      <DependentUpon>frmVerPreguntasPersonaEncuestadas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
