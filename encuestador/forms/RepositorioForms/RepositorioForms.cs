@@ -14,5 +14,6 @@ namespace encuestador.forms
         public int cantidadpreguntas = 0;
         public int cantidadPreguntasTomadas = 0;
         public int encuestaActual =  -1;
+        public int personaActual = -1;
     }
 }

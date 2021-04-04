@@ -11,13 +11,11 @@ user_password varchar(45)
 )
 
 
-
 create table encuesta
 (
 id int primary key identity,
 nombre varchar(50)
 )
-
 
 
 create table preguntas
@@ -27,6 +25,7 @@ create table preguntas
  pregunta varchar(200)
  foreign key( id_encuesta) references encuesta(id) 
 )
+
 
 create table respuestas
 (
@@ -61,7 +60,7 @@ inner join
 preguntas P on P.id = R.id_pregunta 
 inner join 
 usuarios U  on U.id =  R.id_persona 
-where id_persona = @id
+where id_persona = 1
 
 
 

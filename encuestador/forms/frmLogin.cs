@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Logiclayer;
 using System.Configuration;
 using System.Data.SqlClient;
-using Logiclayer;
 using DataBase.models;
 
 namespace encuestador.forms

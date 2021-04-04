@@ -84,6 +84,43 @@ namespace DataBase.db
 
 
         }
-      
+
+        public int verificarNombre(string nombre)
+        {
+            try
+            {
+                connection.Open();
+
+                SqlCommand verificarusuario = new SqlCommand("SELECT id, nombre FROM usuarios WHERE nombre = @nombre", connection);
+                verificarusuario.Parameters.AddWithValue("@nombre", nombre);
+                SqlDataReader reader = verificarusuario.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if ((string)reader.GetValue(1) == nombre)
+                    {
+                        reader.Close();
+                        reader.Dispose();
+                        connection.Close();
+                        //  existe el usuario
+                        return (int)reader.GetValue(0);
+
+                    }
+                }
+                reader.Close();
+                reader.Dispose();
+                connection.Close();
+                // no existe el usuario
+                return -1;
+            }
+            catch
+            {
+                return -1;
+            }
+
+
+        }
+
+
     }
 }

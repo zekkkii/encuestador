@@ -59,6 +59,13 @@ namespace encuestador.forms
 
         }
 
+        private void aplicarEncuestaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVerEncuestaAplicar personaAplicando = new frmVerEncuestaAplicar();
+            personaAplicando.Show();
+            this.Close();
+        }
+
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -153,8 +160,9 @@ namespace encuestador.forms
 
 
 
+
         #endregion
 
-        
+      
     }
 }

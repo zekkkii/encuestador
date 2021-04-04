@@ -123,7 +123,23 @@ namespace DataBase.db
             query.SelectCommand.Parameters.AddWithValue("@id", id);
             return executesqlDataAdapter(query);
         }
+
+
+        public bool introducirRespuestaPregunta(int idPregunta,int idpersona, string respuesta)
+        {
+
+            SqlCommand introducirRespuesta = new SqlCommand("INSERT INTO respuestas(respuesta, id_pregunta, id_persona) values(@respuesta, @idPregunta, @idPersona) ", connection);
+            introducirRespuesta.Parameters.AddWithValue("@respuesta", respuesta);
+            introducirRespuesta.Parameters.AddWithValue("@idPregunta", idPregunta);
+            introducirRespuesta.Parameters.AddWithValue("@idPersona", idpersona);
+
+            if (executeCommand(introducirRespuesta)) return true;
+
+            return false;
+        }
         #endregion
+
+        
 
         #region utilidades
         public bool executeCommand(SqlCommand query)

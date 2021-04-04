@@ -21,3 +21,6 @@ C:\Users\Ezequiel Vasquez\source\repos\Encuestador\encuestador\obj\Debug\encuest
 C:\Users\Ezequiel Vasquez\source\repos\Encuestador\encuestador\obj\Debug\encuestador.forms.frmPersonasEncuestadas.resources
 C:\Users\Ezequiel Vasquez\source\repos\Encuestador\encuestador\obj\Debug\encuestador.frmVerEncuesta.resources
 C:\Users\Ezequiel Vasquez\source\repos\Encuestador\encuestador\obj\Debug\encuestador.forms.frmVerPreguntasPersonaEncuestadas.resources
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\encuestador\obj\Debug\encuestador.forms.frmVerEncuestaAplicar.resources
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\encuestador\obj\Debug\encuestador.forms.frmPersonaAplicandoEncuesta.resources
+C:\Users\Ezequiel Vasquez\source\repos\Encuestador\encuestador\obj\Debug\encuestador.forms.frmAplicarEncuesta.resources

@@ -141,7 +141,6 @@ namespace Logiclayer
         #endregion
 
 
-
         #region respuestas de las encuestas
 
         public DataTable verRespuestasPersonasEncuestadas(int id)
@@ -149,9 +148,30 @@ namespace Logiclayer
             DataTable data = iniciarServicioEncuesta.verRespuestasPersonasEncuestadas(id);
             return data;
         }
+
+        public bool introducirRespuestaPregunta(int idpersona, List<Respuesta> respuestas)
+        {
+
+
+            bool fueInsertado = iniciarServicioEncuesta.introducirRespuestaPregunta(1, idpersona, "");
+           
+            if (fueInsertado) return true;
+
+            return false;
+        }
         #endregion
 
-        #region
+        #region utilidades
+
+        public int existeUsuario(string nombre)
+        {
+           int personaID = iniciarServicioRegistro.verificarNombre(nombre);
+            if (personaID >= 0)
+            { 
+                return personaID;
+            }
+            return -1;
+        }
         #endregion
     }
 }
