@@ -37,7 +37,7 @@ foreign key(id_pregunta) references preguntas(id),
 foreign key(id_persona) references usuarios(id)
 )
 
-
+INSERT INTO respuestas(respuesta, id_pregunta, id_persona) values('prueba', 1,1)
 
 
 

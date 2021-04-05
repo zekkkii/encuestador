@@ -78,14 +78,16 @@ namespace encuestador.forms
 
         public void guardar()
         {
+           
+            
             List<Respuesta> respuestas = new List<Respuesta>();
-            for (int i=0; i < dgvPreguntas.RowCount;  i++) 
+            for (int i = 0; i < dgvPreguntas.RowCount; i++)
             {
                 respuestas.Add(new Respuesta()
                 { idPregunta = (int)dgvPreguntas.Rows[i].Cells[0].Value, respuesta = (string)dgvPreguntas.Rows[i].Cells[2].Value });
             }
 
-          bool fueIntroducido =  iniciarServicio.introducirRespuestaPregunta(RepositorioForms.Instancia.personaActual,respuestas);
+            bool fueIntroducido = iniciarServicio.introducirRespuestaPregunta(RepositorioForms.Instancia.personaActual, respuestas);
 
             if (fueIntroducido)
             {
@@ -97,7 +99,7 @@ namespace encuestador.forms
                 RepositorioForms.Instancia.encuestaActual = -1;
                 this.Close();
             }
-            else 
+            else
             {
                 MessageBox.Show("Parece que hubo un error, intenta luego...");
                 frmVerEncuestaAplicar volver = new frmVerEncuestaAplicar();
@@ -107,6 +109,8 @@ namespace encuestador.forms
                 RepositorioForms.Instancia.encuestaActual = -1;
                 this.Close();
             }
+            
+           
             //rellenar aqui 
         }
 

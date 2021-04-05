@@ -63,7 +63,8 @@ namespace encuestador.forms
         {
             if (tbxNombre.Text != "")
             {
-                int idPersona = iniciarServicio.existeUsuario(tbxNombre.Text);
+                string nombre = tbxNombre.Text;
+                int idPersona = iniciarServicio.existeUsuario(nombre);
 
                 if (idPersona >= 0)
                 {

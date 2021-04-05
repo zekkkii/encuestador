@@ -99,12 +99,12 @@ namespace DataBase.db
                 {
                     if ((string)reader.GetValue(1) == nombre)
                     {
-                        reader.Close();
-                        reader.Dispose();
-                        connection.Close();
                         //  existe el usuario
                         return (int)reader.GetValue(0);
 
+                        reader.Close();
+                        reader.Dispose();
+                        connection.Close();
                     }
                 }
                 reader.Close();

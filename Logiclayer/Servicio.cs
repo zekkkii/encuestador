@@ -151,13 +151,32 @@ namespace Logiclayer
 
         public bool introducirRespuestaPregunta(int idpersona, List<Respuesta> respuestas)
         {
+            try
+            {
 
+                for (int i = 0; i < respuestas.Count; i++)
+                {// pregunta, persona,respuesta
 
-            bool fueInsertado = iniciarServicioEncuesta.introducirRespuestaPregunta(1, idpersona, "");
-           
-            if (fueInsertado) return true;
+                    bool fueInsertado = iniciarServicioEncuesta.introducirRespuestaPregunta(respuestas[i].idPregunta, idpersona, respuestas[i].respuesta);
+                    if (fueInsertado)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        break;
 
-            return false;
+                    }
+
+                }
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        
         }
         #endregion
 

@@ -42,7 +42,7 @@ namespace encuestador.forms
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.28784F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.71216F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
             this.tableLayoutPanel1.Controls.Add(this.tbxNombre, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblTitulo, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnContinuar, 2, 1);
@@ -59,9 +59,9 @@ namespace encuestador.forms
             // tbxNombre
             // 
             this.tbxNombre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbxNombre.Location = new System.Drawing.Point(122, 133);
+            this.tbxNombre.Location = new System.Drawing.Point(121, 133);
             this.tbxNombre.Name = "tbxNombre";
-            this.tbxNombre.Size = new System.Drawing.Size(296, 20);
+            this.tbxNombre.Size = new System.Drawing.Size(294, 20);
             this.tbxNombre.TabIndex = 0;
             this.tbxNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -70,9 +70,9 @@ namespace encuestador.forms
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(122, 0);
+            this.lblTitulo.Location = new System.Drawing.Point(121, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(296, 130);
+            this.lblTitulo.Size = new System.Drawing.Size(294, 130);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Nombre";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -82,9 +82,9 @@ namespace encuestador.forms
             this.btnContinuar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContinuar.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnContinuar.Location = new System.Drawing.Point(424, 133);
+            this.btnContinuar.Location = new System.Drawing.Point(421, 133);
             this.btnContinuar.Name = "btnContinuar";
-            this.btnContinuar.Size = new System.Drawing.Size(116, 23);
+            this.btnContinuar.Size = new System.Drawing.Size(119, 23);
             this.btnContinuar.TabIndex = 2;
             this.btnContinuar.Text = "Continuar";
             this.btnContinuar.UseVisualStyleBackColor = true;
@@ -97,7 +97,7 @@ namespace encuestador.forms
             this.btnCancelar.ForeColor = System.Drawing.Color.Red;
             this.btnCancelar.Location = new System.Drawing.Point(3, 133);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(113, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(112, 23);
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;

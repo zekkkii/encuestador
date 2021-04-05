@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -119,7 +121,7 @@ namespace DataBase.db
 
         public DataTable verRespuestasPersonasEncuestadas( int id)
         {
-            SqlDataAdapter query = new SqlDataAdapter("select P.pregunta as pregunta,respuesta from respuestas Rinnerjoinpreguntas P on P.id = R.id_preguntainnerjoinusuarios U  on U.id = R.id_personawhere id_persona = @id", connection);
+            SqlDataAdapter query = new SqlDataAdapter("select P.pregunta as pregunta, respuesta from respuestas R inner join preguntas P on P.id = R.id_pregunta inner join usuarios U  on U.id = R.id_persona where id_persona = @id", connection);
             query.SelectCommand.Parameters.AddWithValue("@id", id);
             return executesqlDataAdapter(query);
         }
@@ -129,9 +131,9 @@ namespace DataBase.db
         {
 
             SqlCommand introducirRespuesta = new SqlCommand("INSERT INTO respuestas(respuesta, id_pregunta, id_persona) values(@respuesta, @idPregunta, @idPersona) ", connection);
-            introducirRespuesta.Parameters.AddWithValue("@respuesta", respuesta);
-            introducirRespuesta.Parameters.AddWithValue("@idPregunta", idPregunta);
             introducirRespuesta.Parameters.AddWithValue("@idPersona", idpersona);
+            introducirRespuesta.Parameters.AddWithValue("@idPregunta", idPregunta);
+            introducirRespuesta.Parameters.AddWithValue("@respuesta", respuesta);
 
             if (executeCommand(introducirRespuesta)) return true;
 
