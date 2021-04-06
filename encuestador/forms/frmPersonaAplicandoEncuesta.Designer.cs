@@ -42,7 +42,7 @@ namespace encuestador.forms
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.28784F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.71216F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.tableLayoutPanel1.Controls.Add(this.tbxNombre, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblTitulo, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnContinuar, 2, 1);
@@ -61,7 +61,7 @@ namespace encuestador.forms
             this.tbxNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbxNombre.Location = new System.Drawing.Point(121, 133);
             this.tbxNombre.Name = "tbxNombre";
-            this.tbxNombre.Size = new System.Drawing.Size(294, 20);
+            this.tbxNombre.Size = new System.Drawing.Size(293, 20);
             this.tbxNombre.TabIndex = 0;
             this.tbxNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -72,7 +72,7 @@ namespace encuestador.forms
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(121, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(294, 130);
+            this.lblTitulo.Size = new System.Drawing.Size(293, 130);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Nombre";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -82,9 +82,9 @@ namespace encuestador.forms
             this.btnContinuar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContinuar.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnContinuar.Location = new System.Drawing.Point(421, 133);
+            this.btnContinuar.Location = new System.Drawing.Point(420, 133);
             this.btnContinuar.Name = "btnContinuar";
-            this.btnContinuar.Size = new System.Drawing.Size(119, 23);
+            this.btnContinuar.Size = new System.Drawing.Size(120, 23);
             this.btnContinuar.TabIndex = 2;
             this.btnContinuar.Text = "Continuar";
             this.btnContinuar.UseVisualStyleBackColor = true;
@@ -114,7 +114,6 @@ namespace encuestador.forms
             this.Name = "frmPersonaAplicandoEncuesta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Persona Aplicando Encuesta";
-            this.Load += new System.EventHandler(this.frmPersonaAplicandoEncuesta_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

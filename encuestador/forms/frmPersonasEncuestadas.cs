@@ -27,7 +27,18 @@ namespace encuestador.forms
             iniciarServicio = new Servicio(connection);
         }
         #region eventos
-
+        #region desactivar boton cerrar
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
+        #endregion
         private void frmPersonasEncuestadas_Load(object sender, EventArgs e)
         {
             cargarDataGrid();
@@ -75,7 +86,7 @@ namespace encuestador.forms
 
         public void cargarDataGrid()
         {
-            DataTable data = iniciarServicio.verPersonasEncuestadas();
+            DataTable data = iniciarServicio.verPersonasEncuestadas(RepositorioForms.Instancia.indexSeleccionado);
             dgvEncuestas.DataSource = data;
             dgvEncuestas.ClearSelection();
         }

@@ -26,9 +26,10 @@ namespace DataBase.db
             return executesqlDataAdapter(query);
         }
 
-        public DataTable verPersonasEncuestadas()
+        public DataTable verPersonasEncuestadas(int id)
         {
-            SqlDataAdapter query = new SqlDataAdapter("select U.nombre from personas_encuestadas PE inner join usuarios U on U.id = PE.id_persona", connection);
+            SqlDataAdapter query = new SqlDataAdapter("select id_persona, U.nombre from personas_encuestadas PE inner join usuarios U on U.id = PE.id_persona where id_pregunta =@id ", connection);
+            query.SelectCommand.Parameters.AddWithValue("@id",id);
             return executesqlDataAdapter(query);
         }
 
@@ -57,7 +58,18 @@ namespace DataBase.db
             return false;
         }
 
+        public void introducirPersonaEncuestada(int id)
+        {
+            SqlCommand introducirPersona = new SqlCommand("INSERT INTO personas_encuestadas(id_persona) VALUES(@id)", connection);
+            introducirPersona.Parameters.AddWithValue("@id", id);
 
+            //si esta funcione devuelve true, quiere decir que ya la persona existe en la tabla y que ya tomo la encuesta... De lo contrario, se inserta el id del usuario encuestado
+            bool ExsisteUsuarioEnTabla = verificarPersonaEstaEnuestada(id);
+           if (ExsisteUsuarioEnTabla)
+            {
+                executeCommand(introducirPersona); 
+            }
+        }
         #endregion
 
 
@@ -173,6 +185,44 @@ namespace DataBase.db
             {
                 return data;
             }
+        }
+
+
+
+        public bool verificarPersonaEstaEnuestada(int id)
+        {
+            try
+            {
+                connection.Open();
+
+                SqlCommand verificarusuario = new SqlCommand("SELECT id_persona FROM personas_encuestadas WHERE id_persona = @id", connection);
+                verificarusuario.Parameters.AddWithValue("@id", id);
+                SqlDataReader reader = verificarusuario.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //  no existe el usuario
+
+                    if ((int)reader.GetValue(0) == id)
+                    {
+                        return false;
+                        reader.Close();
+                        reader.Dispose();
+                        connection.Close();
+                    }
+                }
+                reader.Close();
+                reader.Dispose();
+                connection.Close();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+
         }
         #endregion
     }

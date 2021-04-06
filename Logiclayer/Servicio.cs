@@ -67,10 +67,10 @@ namespace Logiclayer
             return data;
         }
 
-        public DataTable verPersonasEncuestadas()
+        public DataTable verPersonasEncuestadas(int id)
         {
             // se llama a la DB y se cargan los datos obtenidos en un datable que luego se carga al datagrid            
-            DataTable data = iniciarServicioEncuesta.cargarEncuestas();
+            DataTable data = iniciarServicioEncuesta.verPersonasEncuestadas(id);
             return data;
         }
 
@@ -190,6 +190,11 @@ namespace Logiclayer
                 return personaID;
             }
             return -1;
+        }
+
+        public void introducirPersonaEncuestada(int id)
+        {
+           iniciarServicioEncuesta.introducirPersonaEncuestada(id);        
         }
         #endregion
     }

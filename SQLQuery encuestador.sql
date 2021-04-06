@@ -45,14 +45,16 @@ create table personas_encuestadas
 (
 id int primary key identity,
 id_persona int,
-foreign key(id_persona) references usuarios(id)
+id_pregunta int,
+foreign key(id_persona) references usuarios(id),
+foreign key(id_pregunta) references preguntas(id)
 )
 
 select * from usuarios
 select * from encuesta
 select * from preguntas
 select * from respuestas
-
+select * from  personas_encuestadas
 
 select P.pregunta as pregunta,respuesta 
 from respuestas R
@@ -60,10 +62,8 @@ inner join
 preguntas P on P.id = R.id_pregunta 
 inner join 
 usuarios U  on U.id =  R.id_persona 
-where id_persona = 1
+where id_persona = 
 
 
 
-insert into respuestas(respuesta,id_pregunta,id_persona) values('abc',1,1)
-
-select * from respuestas
+select id_persona, U.nombre from personas_encuestadas PE inner join usuarios U on U.id = PE.id_persona where PE.id_pregunta = 1

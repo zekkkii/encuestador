@@ -91,6 +91,7 @@ namespace encuestador.forms
 
             if (fueIntroducido)
             {
+                iniciarServicio.introducirPersonaEncuestada(RepositorioForms.Instancia.personaActual);
                 MessageBox.Show("Datos Guardados!!!");
                 frmVerEncuestaAplicar volver = new frmVerEncuestaAplicar();
                 volver.Show();

@@ -89,9 +89,6 @@ namespace encuestador.forms
 
         #endregion
 
-        private void frmPersonaAplicandoEncuesta_Load(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 }
