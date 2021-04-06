@@ -87,11 +87,11 @@ namespace encuestador.forms
                 { idPregunta = (int)dgvPreguntas.Rows[i].Cells[0].Value, respuesta = (string)dgvPreguntas.Rows[i].Cells[2].Value });
             }
 
-            bool fueIntroducido = iniciarServicio.introducirRespuestaPregunta(RepositorioForms.Instancia.personaActual, respuestas);
+            bool fueIntroducido = iniciarServicio.introducirRespuestaPregunta(RepositorioForms.Instancia.personaActual, respuestas, RepositorioForms.Instancia.encuestaActual);
 
             if (fueIntroducido)
             {
-                iniciarServicio.introducirPersonaEncuestada(RepositorioForms.Instancia.personaActual);
+                iniciarServicio.introducirPersonaEncuestada(RepositorioForms.Instancia.personaActual, RepositorioForms.Instancia.indexSeleccionado);
                 MessageBox.Show("Datos Guardados!!!");
                 frmVerEncuestaAplicar volver = new frmVerEncuestaAplicar();
                 volver.Show();

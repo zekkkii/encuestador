@@ -28,7 +28,7 @@ namespace DataBase.db
 
         public DataTable verPersonasEncuestadas(int id)
         {
-            SqlDataAdapter query = new SqlDataAdapter("select id_persona, U.nombre from personas_encuestadas PE inner join usuarios U on U.id = PE.id_persona where id_pregunta =@id ", connection);
+            SqlDataAdapter query = new SqlDataAdapter("select id_persona, U.nombre from personas_encuestadas PE inner join usuarios U on U.id = PE.id_persona where id_encuesta =@id ", connection);
             query.SelectCommand.Parameters.AddWithValue("@id",id);
             return executesqlDataAdapter(query);
         }
@@ -58,13 +58,14 @@ namespace DataBase.db
             return false;
         }
 
-        public void introducirPersonaEncuestada(int id)
+        public void introducirPersonaEncuestada(int id,int id_encuesta)
         {
-            SqlCommand introducirPersona = new SqlCommand("INSERT INTO personas_encuestadas(id_persona) VALUES(@id)", connection);
+            SqlCommand introducirPersona = new SqlCommand("INSERT INTO personas_encuestadas(id_persona, id_encuesta) VALUES(@id,@id_encuesta)", connection);
             introducirPersona.Parameters.AddWithValue("@id", id);
+            introducirPersona.Parameters.AddWithValue("@id_encuesta", id_encuesta);
 
             //si esta funcione devuelve true, quiere decir que ya la persona existe en la tabla y que ya tomo la encuesta... De lo contrario, se inserta el id del usuario encuestado
-            bool ExsisteUsuarioEnTabla = verificarPersonaEstaEnuestada(id);
+            bool ExsisteUsuarioEnTabla = verificarPersonaEstaEncuestada(id, id_encuesta);
            if (ExsisteUsuarioEnTabla)
             {
                 executeCommand(introducirPersona); 
@@ -139,13 +140,14 @@ namespace DataBase.db
         }
 
 
-        public bool introducirRespuestaPregunta(int idPregunta,int idpersona, string respuesta)
+        public bool introducirRespuestaPregunta(int idPregunta,int idpersona, string respuesta, int id_encuesta)
         {
 
-            SqlCommand introducirRespuesta = new SqlCommand("INSERT INTO respuestas(respuesta, id_pregunta, id_persona) values(@respuesta, @idPregunta, @idPersona) ", connection);
-            introducirRespuesta.Parameters.AddWithValue("@idPersona", idpersona);
-            introducirRespuesta.Parameters.AddWithValue("@idPregunta", idPregunta);
+            SqlCommand introducirRespuesta = new SqlCommand("INSERT INTO respuestas(respuesta, id_pregunta, id_persona, id_encuesta) values(@respuesta, @idPregunta, @idPersona, @id_encuesta) ", connection);
             introducirRespuesta.Parameters.AddWithValue("@respuesta", respuesta);
+            introducirRespuesta.Parameters.AddWithValue("@idPregunta", idPregunta);
+            introducirRespuesta.Parameters.AddWithValue("@idPersona", idpersona);
+            introducirRespuesta.Parameters.AddWithValue("@id_encuesta", id_encuesta);
 
             if (executeCommand(introducirRespuesta)) return true;
 
@@ -189,14 +191,15 @@ namespace DataBase.db
 
 
 
-        public bool verificarPersonaEstaEnuestada(int id)
+        public bool verificarPersonaEstaEncuestada(int id, int id_encuesta)
         {
             try
             {
                 connection.Open();
 
-                SqlCommand verificarusuario = new SqlCommand("SELECT id_persona FROM personas_encuestadas WHERE id_persona = @id", connection);
+                SqlCommand verificarusuario = new SqlCommand("SELECT id_persona FROM personas_encuestadas WHERE id_persona = @id and id_encuesta = @id_encuesta", connection);
                 verificarusuario.Parameters.AddWithValue("@id", id);
+                verificarusuario.Parameters.AddWithValue("@id_encuesta", id_encuesta);
                 SqlDataReader reader = verificarusuario.ExecuteReader();
 
                 while (reader.Read())

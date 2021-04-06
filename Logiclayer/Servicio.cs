@@ -67,6 +67,11 @@ namespace Logiclayer
             return data;
         }
 
+        public void introducirPersonaEncuestada(int id, int id_encuesta)
+        {
+            iniciarServicioEncuesta.introducirPersonaEncuestada(id, id_encuesta);
+        }
+
         public DataTable verPersonasEncuestadas(int id)
         {
             // se llama a la DB y se cargan los datos obtenidos en un datable que luego se carga al datagrid            
@@ -149,7 +154,7 @@ namespace Logiclayer
             return data;
         }
 
-        public bool introducirRespuestaPregunta(int idpersona, List<Respuesta> respuestas)
+        public bool introducirRespuestaPregunta(int idpersona, List<Respuesta> respuestas, int id_encuesta)
         {
             try
             {
@@ -157,7 +162,7 @@ namespace Logiclayer
                 for (int i = 0; i < respuestas.Count; i++)
                 {// pregunta, persona,respuesta
 
-                    bool fueInsertado = iniciarServicioEncuesta.introducirRespuestaPregunta(respuestas[i].idPregunta, idpersona, respuestas[i].respuesta);
+                    bool fueInsertado = iniciarServicioEncuesta.introducirRespuestaPregunta(respuestas[i].idPregunta, idpersona, respuestas[i].respuesta, id_encuesta);
                     if (fueInsertado)
                     {
                         continue;
@@ -192,10 +197,7 @@ namespace Logiclayer
             return -1;
         }
 
-        public void introducirPersonaEncuestada(int id)
-        {
-           iniciarServicioEncuesta.introducirPersonaEncuestada(id);        
-        }
+       
         #endregion
     }
 }
