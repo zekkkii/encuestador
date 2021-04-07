@@ -73,7 +73,7 @@ namespace encuestador.forms
         {
             if (RepositorioForms.Instancia.indexSeleccionado >= 0)
             {
-                RepositorioForms.Instancia.encuestaActual = RepositorioForms.Instancia.indexSeleccionado;
+            
                 frmVerPreguntasPersonaEncuestadas VerRespuestas = new frmVerPreguntasPersonaEncuestadas();
                 VerRespuestas.Show();
                 this.Close();

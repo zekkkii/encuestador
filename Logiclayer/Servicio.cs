@@ -148,9 +148,9 @@ namespace Logiclayer
 
         #region respuestas de las encuestas
 
-        public DataTable verRespuestasPersonasEncuestadas(int id)
+        public DataTable verRespuestasPersonasEncuestadas(int id, int id_encuesta)
         {
-            DataTable data = iniciarServicioEncuesta.verRespuestasPersonasEncuestadas(id);
+            DataTable data = iniciarServicioEncuesta.verRespuestasPersonasEncuestadas(id, id_encuesta);
             return data;
         }
 

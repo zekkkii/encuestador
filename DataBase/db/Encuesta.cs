@@ -132,10 +132,11 @@ namespace DataBase.db
 
         #region respuestas de las encuestas
 
-        public DataTable verRespuestasPersonasEncuestadas( int id)
+        public DataTable verRespuestasPersonasEncuestadas( int id, int id_encuesta)
         {
-            SqlDataAdapter query = new SqlDataAdapter("select P.pregunta as pregunta, respuesta from respuestas R inner join preguntas P on P.id = R.id_pregunta inner join usuarios U  on U.id = R.id_persona where id_persona = @id", connection);
+            SqlDataAdapter query = new SqlDataAdapter("select P.pregunta as pregunta, respuesta from respuestas R inner join preguntas P on P.id = R.id_pregunta inner join usuarios U  on U.id = R.id_persona where id_persona = @id and R.id_encuesta =@id_encuesta", connection);
             query.SelectCommand.Parameters.AddWithValue("@id", id);
+            query.SelectCommand.Parameters.AddWithValue("@id_encuesta", id_encuesta);
             return executesqlDataAdapter(query);
         }
 

@@ -68,7 +68,7 @@ namespace encuestador.forms
 
         public void cargarDataGrid()
         {
-            DataTable data = iniciarServicio.verRespuestasPersonasEncuestadas(RepositorioForms.Instancia.indexSeleccionado);
+            DataTable data = iniciarServicio.verRespuestasPersonasEncuestadas(RepositorioForms.Instancia.indexSeleccionado, RepositorioForms.Instancia.encuestaActual);
             dgvEncuestas.DataSource = data;
             dgvEncuestas.ClearSelection();
         }
