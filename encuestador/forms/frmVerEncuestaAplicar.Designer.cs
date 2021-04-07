@@ -34,12 +34,15 @@ namespace encuestador.forms
             this.sesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAplicarEncuesta = new System.Windows.Forms.Button();
-            this.lblEncuestas = new System.Windows.Forms.Label();
             this.dgvEncuestas = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblEncuestas = new System.Windows.Forms.Label();
+            this.lblNota = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEncuestas)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -47,11 +50,11 @@ namespace encuestador.forms
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.9759F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.02409F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
             this.tableLayoutPanel1.Controls.Add(this.menuStrip1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblEncuestas, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.dgvEncuestas, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -85,7 +88,7 @@ namespace encuestador.forms
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.btnAplicarEncuesta, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(660, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(659, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.31579F));
@@ -107,18 +110,6 @@ namespace encuestador.forms
             this.btnAplicarEncuesta.UseVisualStyleBackColor = false;
             this.btnAplicarEncuesta.Click += new System.EventHandler(this.btnAplicarEncuesta_Click);
             // 
-            // lblEncuestas
-            // 
-            this.lblEncuestas.AutoSize = true;
-            this.lblEncuestas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEncuestas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEncuestas.Location = new System.Drawing.Point(127, 0);
-            this.lblEncuestas.Name = "lblEncuestas";
-            this.lblEncuestas.Size = new System.Drawing.Size(527, 101);
-            this.lblEncuestas.TabIndex = 3;
-            this.lblEncuestas.Text = "Aplica a una encuesta";
-            this.lblEncuestas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // dgvEncuestas
             // 
             this.dgvEncuestas.AllowUserToAddRows = false;
@@ -138,6 +129,46 @@ namespace encuestador.forms
             this.dgvEncuestas.TabIndex = 0;
             this.dgvEncuestas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEncuestas_CellContentClick);
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.lblNota, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.lblEncuestas, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(127, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(526, 95);
+            this.tableLayoutPanel3.TabIndex = 3;
+            // 
+            // lblEncuestas
+            // 
+            this.lblEncuestas.AutoSize = true;
+            this.lblEncuestas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblEncuestas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEncuestas.Location = new System.Drawing.Point(3, 0);
+            this.lblEncuestas.Name = "lblEncuestas";
+            this.lblEncuestas.Size = new System.Drawing.Size(520, 47);
+            this.lblEncuestas.TabIndex = 4;
+            this.lblEncuestas.Text = "Aplica a una encuesta";
+            this.lblEncuestas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblNota
+            // 
+            this.lblNota.AutoSize = true;
+            this.lblNota.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNota.Location = new System.Drawing.Point(3, 47);
+            this.lblNota.Name = "lblNota";
+            this.lblNota.Size = new System.Drawing.Size(520, 48);
+            this.lblNota.TabIndex = 5;
+            this.lblNota.Text = "Nota: si ya aplicaste a una encuesta los datos no seran guardados aunque apliques" +
+    "...";
+            this.lblNota.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmVerEncuestaAplicar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +185,8 @@ namespace encuestador.forms
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEncuestas)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -165,7 +198,9 @@ namespace encuestador.forms
         private System.Windows.Forms.ToolStripMenuItem sesionToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btnAplicarEncuesta;
-        private System.Windows.Forms.Label lblEncuestas;
         private System.Windows.Forms.DataGridView dgvEncuestas;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label lblNota;
+        private System.Windows.Forms.Label lblEncuestas;
     }
 }

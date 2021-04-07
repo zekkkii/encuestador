@@ -143,14 +143,18 @@ namespace DataBase.db
 
         public bool introducirRespuestaPregunta(int idPregunta,int idpersona, string respuesta, int id_encuesta)
         {
+            bool noFueEncuestado = verificarPersonaEstaEncuestada(idpersona, id_encuesta);
+            if (noFueEncuestado)
+            {
+                SqlCommand introducirRespuesta = new SqlCommand("INSERT INTO respuestas(respuesta, id_pregunta, id_persona, id_encuesta) values(@respuesta, @idPregunta, @idPersona, @id_encuesta) ", connection);
+                introducirRespuesta.Parameters.AddWithValue("@respuesta", respuesta);
+                introducirRespuesta.Parameters.AddWithValue("@idPregunta", idPregunta);
+                introducirRespuesta.Parameters.AddWithValue("@idPersona", idpersona);
+                introducirRespuesta.Parameters.AddWithValue("@id_encuesta", id_encuesta);
 
-            SqlCommand introducirRespuesta = new SqlCommand("INSERT INTO respuestas(respuesta, id_pregunta, id_persona, id_encuesta) values(@respuesta, @idPregunta, @idPersona, @id_encuesta) ", connection);
-            introducirRespuesta.Parameters.AddWithValue("@respuesta", respuesta);
-            introducirRespuesta.Parameters.AddWithValue("@idPregunta", idPregunta);
-            introducirRespuesta.Parameters.AddWithValue("@idPersona", idpersona);
-            introducirRespuesta.Parameters.AddWithValue("@id_encuesta", id_encuesta);
+                if (executeCommand(introducirRespuesta)) return true;
 
-            if (executeCommand(introducirRespuesta)) return true;
+            }
 
             return false;
         }
